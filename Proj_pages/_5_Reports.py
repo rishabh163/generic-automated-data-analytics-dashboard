@@ -160,69 +160,95 @@ Dataset Memory Usage    : {round(df.memory_usage(deep=True).sum() / (1024 ** 2),
         use_container_width=True,
     )
 
-
 def _project_information():
     page_heading("ℹ️ Project Information")
 
-    st.markdown(
-        """
-<div style="
-    background: linear-gradient(180deg, #ffffff, #fafbff);
-    border: 1px solid #E7EAF3;
-    border-top: 4px solid #5B5CEB;
-    border-bottom: 2px solid #5B5CEB;
-    border-radius: 18px;
-    padding: 24px 28px;
-    box-shadow: 0 8px 22px rgba(0,0,0,.08);
-    font-size: 15px;
-">
+    with st.container(border=True):
 
-### 📊 **Generic Automated Data Analytics Dashboard**
+        st.subheader("📊 Generic Automated Data Analytics Dashboard")
 
-#### 🚀 Features
-- 📂 Upload CSV / Excel Dataset
+        st.markdown("### 🚀 Features")
+        st.markdown("""
+- 📂 Upload CSV / Excel / JSON Dataset
 - 🧹 Data Cleaning
 - 🔍 Data Filtering
 - 📈 Interactive Charts
 - 🧠 Analytics
 - 📄 Report Generation
 - 📥 Export Dataset
+""")
 
----
+        st.divider()
 
-#### 🛠️ Technologies Used
+        st.markdown("### 🛠️ Technologies Used")
+        st.markdown("""
 - Python
 - Pandas
 - Plotly
 - Streamlit
+- OpenPyXL
+""")
 
----
+        st.divider()
 
-#### 🎯 Objective
-- Automate the complete data analysis workflow
-- Enable users to upload any dataset
-- Clean and explore data with ease
-- Visualize insights through interactive charts
-- Analyze patterns for deeper understanding
-- Download processed data and reports for ML / Business Analytics
+        st.markdown("### 🎯 Objective")
+        st.markdown("""
+- Automate the complete data analysis workflow.
+- Enable users to upload any dataset.
+- Clean and analyze data efficiently.
+- Generate interactive visualizations.
+- Export processed datasets and reports.
+""")
 
----
+        st.divider()
 
-#### 👤 Developer
-**Rishabh Gaur**
+        st.markdown("### 👤 Developer")
+        st.write("**Rishabh Gaur**")
 
-🔗 GitHub: https://github.com/rishabh163
+        st.divider()
 
----
+        st.markdown("### 🔗 Project Access")
 
-#### 📌 Version
-v1.0.0
+        # ---------------- GitHub ----------------
+        left, right = st.columns([3, 1])
 
-</div>
-""",
-        unsafe_allow_html=True
-    )
+        with left:
+            st.markdown("#### 📂 GitHub Repository")
+            st.code(
+                "https://github.com/rishabh163/generic-automated-data-analytics-dashboard",
+                language=None,
+            )
 
+        with right:
+            st.image(
+                "assets/github_qr.png",
+                width=200,
+                caption="GitHub Repository",
+            )
+
+        st.divider()
+
+        # ---------------- Render ----------------
+        left, right = st.columns([3, 1])
+
+        with left:
+            st.markdown("#### 🌐 Live Demo (Render)")
+            st.code(
+                "https://generic-automated-data-analytics.onrender.com",
+                language=None,
+            )
+
+        with right:
+            st.image(
+                "assets/render_qr.png",
+                width=200,
+                caption="Live Demo",
+            )
+
+        st.divider()
+
+        st.markdown("### 📌 Version")
+        st.write("v1.0.0")
 
 def reports(df):
     _show_page_title()
